@@ -1,5 +1,4 @@
 #include "pool.h"
-
 #include <string.h>
 #include <pthread.h>
 #include <time.h>
