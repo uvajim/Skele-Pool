@@ -6,6 +6,15 @@
 #include <unordered_map>
 #include <set>
 
+struct threadParam{
+    int y_start; 
+    int isFirstThread;
+    int y_end;
+    LifeBoard state;
+    LifeBoard next_state;
+    pthread_barrier_t barrier;
+};
+
 Task::Task() {
 }
 
