@@ -40,13 +40,18 @@ public:
     std::unordered_map<std::string, Task*> names;  
     //creates the thread pool
      pthread_t *pool;
-    //locks
+    
     //the lock for an empty queue
     std::condition_variable is_empty;
+    //check if stopped has been called
+    bool stopped;
+    std::condition_variable thread_stop;
     //a simple lock for the producer
     std::mutex prod_lk;
     //a simple lock for the consumer
     std::mutex consumer_lk;
+    //a simple lock for WaitForTask
+    std::mutex wait_lk;
 
 };
 #endif
