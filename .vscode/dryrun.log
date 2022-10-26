@@ -1,0 +1,12 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/u/sc3xry/Skele-Pool'
+g++ -Wall -pedantic -std=c++17 -ggdb -Og -fsanitize=address -fsanitize=undefined   -c -o pool-test.o pool-test.cc
+g++ -Wall -pedantic -std=c++17 -ggdb -Og -fsanitize=address -fsanitize=undefined   -c -o pool.o pool.cc
+ar rcs libpool.a pool.o
+g++ -Wall -pedantic -std=c++17 -ggdb -Og -fsanitize=address -fsanitize=undefined -o pool-test pool-test.o libpool.a -lpthread
+g++ -c -Wall -pedantic -std=c++17 -ggdb -Og -fsanitize=thread -D_GLIBCXX_DEBUG -o pool-test-tsan.o pool-test.cc
+g++ -c -Wall -pedantic -std=c++17 -ggdb -Og -fsanitize=thread -D_GLIBCXX_DEBUG -o pool-tsan.o pool.cc
+ar rcs libpool-tsan.a pool-tsan.o
+g++ -Wall -pedantic -std=c++17 -ggdb -Og -fsanitize=thread -D_GLIBCXX_DEBUG -o pool-test-tsan pool-test-tsan.o libpool-tsan.a -lpthread
+make: Leaving directory `/u/sc3xry/Skele-Pool'
+ 

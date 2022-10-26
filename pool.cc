@@ -18,6 +18,11 @@ ThreadPool::ThreadPool(int num_threads) {
     for (int i = 0; i<num_threads; ++i) {
         pool[i] = i;
         task_q.append(i);
+        //create pthread
+
+        //make void* for class variables
+
+        pthread_t_create(currThread, NULL, &RunTask, (void*) NULL);
     }
 }
 
@@ -26,21 +31,28 @@ void ThreadPool::SubmitTask(const std::string &name, Task* task) {
     q.append(task);
     names[name] = task;
     prod_lk.unlock();
-    Run()
+    //Run()
 }
 
-void Run(){
+void* RunTask(void* v){
     consumer_lk.lock();
-    Task task = q.pop()
-    consumer_lk.unlock();
+    Task task = q.pop();
     pthread_t* currThread = pool.pop();
-    pthread_t_create(currThread, NULL, task->Run, NULL);
+    consumer_lk.unlock();
+
     completed_tasks.insert(task);
+    //pthread_join?
 }
 
+//wait for task "name" to finish
 void ThreadPool::WaitForTask(const std::string &name) {
-
+    consumer_lk.lock();
+    while(q.empty){
+        is_empty.Wait()
+    }
 }
 
 void ThreadPool::Stop() {
+    //signal to threads that they no longer have to wait (another condition var)
+    //call pthread_join
 }

@@ -1,0 +1,371 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.82
+# Built for x86_64-redhat-linux-gnu
+# Copyright (C) 2010  Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+ 
+
+# Make data base, printed on Tue Oct 25 18:01:28 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# default
+.SHELLFLAGS := -c
+# environment
+VSCODE_AGENT_FOLDER = /u/sc3xry/.vscode-server
+# environment
+MODULEPATH = /sw/centos/Modules/modulefiles
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# default
+MAKE_VERSION := 3.82
+# makefile
+CURDIR := /u/sc3xry/Skele-Pool
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
+# environment
+_ = /usr/bin/make
+# makefile (from `Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# environment
+HISTCONTROL = ignoredups
+# makefile (from `Makefile', line 2)
+CXXFLAGS = -Wall -pedantic -std=c++17 -ggdb -Og -fsanitize=address -fsanitize=undefined
+# environment
+define BASH_FUNC_ml()
+() {  module ml "$@"
+}
+endef
+# environment
+LESSOPEN = ||/usr/bin/lesspipe.sh %s
+# environment
+VSCODE_CWD = /u/sc3xry
+# environment
+KRB5CCNAME = KEYRING:persistent:2218260
+# environment
+SSH_CONNECTION = 172.25.134.149 58362 128.143.69.112 22
+# environment
+PATH = /u/sc3xry/.vscode-server/bin/d045a5eda657f4d7b676dedbfa7aab8207f8a075/bin/remote-cli:/sw/centos/slurm/current/bin:/sw/centos-7.4/Modules/5.0.1/bin:/usr/local/bin:/usr/bin:/opt/puppetlabs/bin:/usr/local/sbin:/usr/sbin:/u/sc3xry/bin
+# environment
+XDG_RUNTIME_DIR = /run/user/2218260
+# environment
+MODULES_CMD = /sw/centos-7.4/Modules/5.0.1/libexec/modulecmd.tcl
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver check-symlink
+# automatic
+%F = $(notdir $%)
+# environment
+SLURM_CONF = /etc/slurm/slurm.conf
+# environment
+PWD = /u/sc3xry/Skele-Pool
+# environment
+VSCODE_IPC_HOOK_CLI = /run/user/2218260/vscode-ipc-1f8ec93b-e7ba-4ac7-ba75-9570cdf5d90d.sock
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# makefile (from `Makefile', line 3)
+CXXFLAGS_TSAN = -Wall -pedantic -std=c++17 -ggdb -Og -fsanitize=thread -D_GLIBCXX_DEBUG
+# environment
+MANPATH = :/opt/puppetlabs/puppet/share/man
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /u/sc3xry
+# environment
+MODULESHOME = /sw/centos-7.4/Modules/5.0.1
+# environment
+LOGNAME = sc3xry
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# automatic
++F = $(notdir $+)
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+HOSTNAME = portal02
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 5
+# environment
+XDG_SESSION_ID = 80384
+# environment
+USER = sc3xry
+# makefile
+.DEFAULT_GOAL := all
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+define BASH_FUNC_module()
+() {  eval `/usr/bin/tclsh /sw/centos-7.4/Modules/5.0.1/libexec/modulecmd.tcl bash "$@"`;
+ _mlstatus=$?;
+ return $_mlstatus
+}
+endef
+# default
+MAKE_COMMAND := make
+# default
+.VARIABLES := 
+# environment
+CVS_RSH = ssh
+# automatic
+*F = $(notdir $*)
+# makefile
+MAKEFLAGS = Rrqp
+# environment
+MFLAGS = -Rrqp
+# environment
+SSH_CLIENT = 172.25.134.149 58362 22
+# environment
+MAIL = /var/spool/mail/sc3xry
+# environment
+LOADEDMODULES = slurm-client
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+BROWSER = /u/sc3xry/.vscode-server/bin/d045a5eda657f4d7b676dedbfa7aab8207f8a075/bin/helpers/browser.sh
+# environment
+VSCODE_HANDLES_SIGPIPE = true
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# environment
+_LMFILES_ = /sw/centos/Modules/modulefiles/slurm-client
+# makefile (from `Makefile', line 1)
+CXX = g++
+# makefile (from `Makefile', line 28)
+SUBMIT_FILENAME = pool-submission-$(shell date +%Y%m%d%H%M%S).tar.gz
+# environment
+LC_ALL = C
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+HISTSIZE = 1000
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# default
+.RECIPEPREFIX := 
+# environment
+LANG = C
+# variable set hash-table stats:
+# Load=75/1024=7%, Rehash=0, Collisions=7/97=7%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 47, inode 377141995): 16 files, no impossibilities.
+
+# 16 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+%-tsan.o: %.cc
+#  recipe to execute (from `Makefile', line 8):
+	$(CXX) -c $(CXXFLAGS_TSAN) -o $@ $<
+
+# 1 implicit rules, 0 (0.0%) terminal.
+
+# Files
+
+pool-test.o: pool-test.cc pool.h
+#  Implicit rule search has been done.
+#  Last modified 2022-10-24 15:58:45.318173871
+#  File has been updated.
+#  Successfully updated.
+
+pool-test: pool-test.o libpool.a
+#  Implicit rule search has not been done.
+#  Last modified 2022-10-24 15:58:46.248173876
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from `Makefile', line 23):
+	$(CXX) $(CXXFLAGS) -o $@ $^ -lpthread
+
+all: pool-test pool-test-tsan
+#  Phony target (prerequisite of .PHONY).
+#  Command line target.
+ 
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+
+pool.o: pool.cc pool.h
+#  Implicit rule search has been done.
+#  Last modified 2022-10-24 15:58:45.999173875
+#  File has been updated.
+#  Successfully updated.
+
+.PHONY: all clean submit skeleton
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pool-test.cc:
+#  Implicit rule search has been done.
+#  Last modified 2022-10-24 15:57:58.560173644
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+pool.cc:
+#  Implicit rule search has been done.
+#  Last modified 2022-10-24 15:57:58.564173644
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-10-24 15:12:23.880160353
+#  File has been updated.
+#  Successfully updated.
+
+submit:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from `Makefile', line 31):
+	tar -zcf $(SUBMIT_FILENAME) $(wildcard *.cc *.h *.hh *.H *.cpp *.C *.c *.txt *.md *.pdf) Makefile 
+	@echo "Created $(SUBMIT_FILENAME); please upload and submit this file."
+
+# Not a target:
+pool-base.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+skeleton: pool-base.h pool-base.cc
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from `Makefile', line 35):
+	rm -f pool-skeleton.tar.gz
+	rm -rf for-skeleton
+	mkdir -p for-skeleton/pool
+	cp pool-base.h for-skeleton/pool/pool.h
+	cp pool-base.cc for-skeleton/pool/pool.cc
+	cp pool-test.cc Makefile for-skeleton/pool/
+	cd for-skeleton && tar zcvf ../pool-skeleton.tar.gz pool
+
+libpool-tsan.a: pool-tsan.o
+#  Implicit rule search has not been done.
+#  Last modified 2022-10-24 15:58:48.527173887
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from `Makefile', line 14):
+	ar rcs $@ $^
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+pool.h:
+#  Implicit rule search has been done.
+#  Last modified 2022-10-24 15:12:23.890160353
+#  File has been updated.
+#  Successfully updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from `Makefile', line 44):
+	rm -f *.o
+
+libpool.a: pool.o
+#  Implicit rule search has not been done.
+#  Last modified 2022-10-24 15:58:46.013173875
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from `Makefile', line 11):
+	ar rcs $@ $^
+
+pool-test-tsan: pool-test-tsan.o libpool-tsan.a
+#  Implicit rule search has not been done.
+#  Last modified 2022-10-24 15:58:48.671173888
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from `Makefile', line 26):
+	$(CXX) $(CXXFLAGS_TSAN) -o $@ $^ -lpthread
+
+pool-test-tsan.o: pool-test.cc pool-test.cc pool.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `pool-test'
+#  Last modified 2022-10-24 15:58:47.994173884
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from `Makefile', line 8):
+	$(CXX) -c $(CXXFLAGS_TSAN) -o $@ $<
+
+pool-tsan.o: pool.cc pool.cc pool.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `pool'
+#  Last modified 2022-10-24 15:58:48.515173887
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from `Makefile', line 8):
+	$(CXX) -c $(CXXFLAGS_TSAN) -o $@ $<
+
+# Not a target:
+pool-base.cc:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=21/1024=2%, Rehash=0, Collisions=2/62=3%
+# VPATH Search Paths
+
+# No `vpath' search paths.
+
+# No general (`VPATH' variable) search path.
+
+# # of strings in strcache: 0 / lookups = 81 / hits = 81
+# # of strcache buffers: 1 (* 8176 B/buffer = 8176 B)
+# strcache used: total = 0 (281) / max = 0 / min = 8176 / avg = 0
+# strcache free: total = 0 (7895) / max = 0 / min = 8176 / avg = 0
+
+# strcache hash-table stats:
+# Load=30/8192=0%, Rehash=0, Collisions=2/81=2%
+# Finished Make data base on Tue Oct 25 18:01:28 2022
+
+ 
