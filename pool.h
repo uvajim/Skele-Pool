@@ -44,7 +44,7 @@ public:
     //the lock for an empty queue
     std::condition_variable is_empty;
     //check if stopped has been called
-    bool stopped;
+    bool stopped = false;
     std::condition_variable thread_stop;
     //a simple lock for the producer
     std::mutex prod_lk;

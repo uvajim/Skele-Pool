@@ -35,12 +35,10 @@ void* RunTask(void* v){
     //conditon variable set to do work infinitly
 
 
-    //use threads condvar
     while(!args.stopped){
         args.consumer_lk->lock();
         while(args.q->empty()){
             //use thread_empty condvar here
-
         }
         //get first task in queue
         Task* task = args.q->front();
@@ -53,14 +51,12 @@ void* RunTask(void* v){
         args.completed_tasks->insert(task);
         args.prod_lk->unlock();
     }
-
-    return NULL;
+    return;
 }
 
 ThreadPool::ThreadPool(int num_threads) {
     //creates the thread pool
     pool = new pthread_t[num_threads];
-    stopped = false;
     //fill threadParam
     threadParam args;
     args.q = &q;
@@ -72,12 +68,13 @@ ThreadPool::ThreadPool(int num_threads) {
 
     for (int i = 0; i<num_threads; ++i) {
         pool[i] = i;
-        
         //create pthread
-
         //make void* for class variables
-
         pthread_create(&pool[i], NULL, &RunTask, (void*) &args);
+    }
+
+    for (int i = 0; i<num_threads; ++i) {
+        pthread_join(pool[i], NULL);
     }
 }
 
@@ -110,6 +107,5 @@ void ThreadPool::Stop() {
         pthread_join(pool[thread],NULL);
     }
     */
-    
     //deallocate memory for everything
 }
