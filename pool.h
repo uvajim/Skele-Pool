@@ -6,6 +6,7 @@
 #include <condition_variable>
 #include <unordered_map>
 #include <set>
+#include <semaphore.h>
 
 class Task {
 public:
@@ -53,5 +54,7 @@ public:
     //a simple lock for WaitForTask
     std::mutex wait_lk;
 
+    std::mutex completed_tasks_lk;
+    sem_t sem;
 };
 #endif
