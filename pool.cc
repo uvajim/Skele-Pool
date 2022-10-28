@@ -57,7 +57,7 @@ void* RunTask(void* v){
         //run function
         //do not run funtions if there is a wait call
         std::cout<<"gudugudu"<<std::endl;
-        while (!args.wait_lk->try_lock()){};
+        while (!args.wait_lk->try_lock()){std::cout<<"infinite"<<std::endl;};
         args.wait_lk->unlock();
         task->Run();
         std::cout<<"Running Task!: "<<task<<std::endl;
@@ -141,7 +141,6 @@ void ThreadPool::Stop() {
     //deallocate memory for everything
 
     for (int i=0; i < sizeof(pool)/sizeof(int); ++i){
-        std::cout<< "yuck" <<std::endl;
         pthread_join(pool[i], NULL);
     }
 }
