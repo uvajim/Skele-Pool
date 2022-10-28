@@ -84,6 +84,7 @@ void ThreadPool::SubmitTask(const std::string &name, Task* task) {
     q.push(task);
     sem_post(&sem);
     names[name] = task;
+    prod_lk.unlock();
     //signal condition variable thread_empty
 }
 
@@ -96,9 +97,13 @@ void ThreadPool::WaitForTask(const std::string &name) {
     while(completed_tasks.find(task)==completed_tasks.end()){
         // infinite loop
     }
+    
+    prod_lk.lock();
+    names.erase(name);
+    prod_lk.unlock();
+    
     completed_tasks_lk.lock();
     completed_tasks.erase(task);
-    names.erase(name);
     wait_lk.unlock();
 }
 
