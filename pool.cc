@@ -130,7 +130,6 @@ void ThreadPool::WaitForTask(const std::string &name) {
 void ThreadPool::Stop() {
     //signal to threads that they no longer have to wait (another condition var)
     stopped = true;
-    sem_post(&sem);
 
     for (int i=0; i < sizeof(pool)/sizeof(int); ++i){
         pthread_join(pool[i], NULL);
