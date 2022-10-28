@@ -37,6 +37,7 @@ public:
     std::queue<int> thread_q;
     //the set that will contain all completed _tasks
     std::set<Task*> completed_tasks;
+    std::set<Task*> running_tasks;
     //keeps the name as a key, and the TaskID as a value
     std::unordered_map<std::string, Task*> names;  
     //creates the thread pool
@@ -52,9 +53,11 @@ public:
     //a simple lock for the consumer
     std::mutex consumer_lk;
     //a simple lock for WaitForTask
-    std::mutex wait_lk;
+    std::unique_lock<std::mutex>  wait_lk;
 
     std::mutex completed_tasks_lk;
+    std::condition_variable stop;
+
     sem_t sem;
 };
 #endif
