@@ -5,6 +5,7 @@
 #include <condition_variable>
 #include <unordered_map>
 #include <set>
+#include <iostream>
 
 
 struct threadParam{
@@ -39,24 +40,40 @@ void* RunTask(void* v){
     //loop until stop is called
 
     //conditon variable set to do work infinitly
-    while(!args.stopped){
+    std::cout<< args.stopped <<std::endl;
+    while(!*args.stopped){
+        std::cout<<"jeiowanewionfweiofjn"<<std::endl;
+        sem_trywait(args.is_empty);
+        if (*args.stopped){
+            return NULL;
+        }
         sem_wait(args.is_empty);
         //get first task in queue
+        std::cout<<"jeiowanewionfweiofjn"<<std::endl;
+        args.consumer_lk->lock();
         Task* task = args.q->front();
         args.q->pop();
+        args.consumer_lk->unlock();
         //run function
         //do not run funtions if there is a wait call
+        std::cout<<"gudugudu"<<std::endl;
         while (!args.wait_lk->try_lock()){};
+        args.wait_lk->unlock();
         task->Run();
+        std::cout<<"Running Task!: "<<task<<std::endl;
         //put on completed thread queue
         args.completed_tasks_lk->lock();
         args.completed_tasks->insert(task);
-        args.completed_tasks_lk->unlock();
+        std::cout<<"Inserting Task!: "<<task<<std::endl;
+        args.completed_tasks_lk->unlock(); 
     }
+    std::cout<< "END" <<std::endl;
+    return NULL;
 }
 
 ThreadPool::ThreadPool(int num_threads) {
     //creates the thread pool
+    std::cout<< "new threadpool" <<std::endl;
     pool = new pthread_t[num_threads];
     sem_init(&sem, 0, 0);
     //fill threadParam
@@ -84,6 +101,7 @@ void ThreadPool::SubmitTask(const std::string &name, Task* task) {
     q.push(task);
     sem_post(&sem);
     names[name] = task;
+    std::cout<<"@Task: "<<task<<std::endl;
     prod_lk.unlock();
     //signal condition variable thread_empty
 }
@@ -92,24 +110,28 @@ void ThreadPool::SubmitTask(const std::string &name, Task* task) {
 
 //wait for task "name" to finish
 void ThreadPool::WaitForTask(const std::string &name) {
+    std::cout<<"CALLED: "<<std::endl;
     wait_lk.lock();
     Task* task = names[name];
-    while(completed_tasks.find(task)==completed_tasks.end()){
-        // infinite loop
-    }
-    
+    std::cout<<"Task?: "<<task<<std::endl;
+
+    while(completed_tasks.find(task)==completed_tasks.end()){}
+
     prod_lk.lock();
     names.erase(name);
     prod_lk.unlock();
     
     completed_tasks_lk.lock();
     completed_tasks.erase(task);
+    completed_tasks_lk.unlock();
     wait_lk.unlock();
 }
 
 void ThreadPool::Stop() {
     //signal to threads that they no longer have to wait (another condition var)
     stopped = true;
+    sem_post(&sem);
+
     //call pthread_join
     /*
     for (int thread = 0; thread < threads; ++thread){
@@ -119,6 +141,7 @@ void ThreadPool::Stop() {
     //deallocate memory for everything
 
     for (int i=0; i < sizeof(pool)/sizeof(int); ++i){
+        std::cout<< "yuck" <<std::endl;
         pthread_join(pool[i], NULL);
     }
 }
