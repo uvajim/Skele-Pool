@@ -316,17 +316,14 @@ void test_submit_then_wait_then_submit(int thread_count, int task_count) {
         " tasks, then allowing them to finish and waiting briefly, then submitting " +
         N(task_count) + " tasks again";
     START_TEST(description);
-    std::cout<< "CREATING!!!" <<std::endl;
     ThreadPool pool{thread_count};
     std::vector<int> task_results;
     task_results.resize(task_count * 2);
     std::atomic<int> counter{0};
     for (int i = 0; i < task_count; ++i) {
-        std::cout<< "SUBMITTING!!!" <<std::endl;
         pool.SubmitTask(T("first", i), new RecordIncrementTask(&counter, &task_results[i]));
     }
     for (int i = 0; i < task_count; ++i) {
-        std::cout<< "WAITING!!!" <<std::endl;
         pool.WaitForTask(T("first", i));
     }
     struct timespec sp;
